@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SYS_USER">
+	<!-- 新增客户信息, AddClientService -->
+	<insert id="insert" parameterType="cn.com.honzh.modules.yxjj.entry.UserModel" useGeneratedKeys="true" keyProperty="id" >
+    insert into sys_user (login_name, login_pwd, salt, 
+      last_login_date, idCardNo, wxid,
+      wx_photo_url,nick_name,sum_score,
+      promote_number,family_address,current_address,
+      contact, user_type, create_uid, 
+      create_date, update_uid, 
+      update_date, is_delete
+      )
+    values (#{loginName}, #{loginPwd}, #{salt}, 
+      #{lastLoginDate}, #{idCardNo}, #{wxID},
+      #{wxPhotoUrl},#{nickName},#{sumScore},
+      #{promoteNumber},#{familyAddress},#{currentAddress},
+      #{contact}, #{userType}, 
+      #{createUID}, #{createDate}, #{updateUID}, 
+      #{updateDate}, 2
+      )
+  </insert>
+  
+    <!-- 更新客户信息, AddClientService -->
+	<update id="update" parameterType="cn.com.honzh.modules.yxjj.entry.UserModel" >
+    update sys_user
+    set 
+      login_name = #{loginName}, login_pwd = #{loginPwd}, salt = #{salt}, 
+      last_login_date = #{lastLoginDate}, idCardNo = #{idCardNo}, 
+      contact = #{contact}, user_type = #{userType}, 
+      update_uid = #{updateUID}, update_date = #{updateDate}
+    where id = #{id}
+  </update>
+  <select id="getUserList" parameterType="Object" resultType="map">
+	  	SELECT id,
+			  login_name loginName, login_pwd loginPwd, salt, 
+		      last_login_date lastLoginDate, idCardNo idCardNo, 
+		      wxid wxID, wx_photo_url wxPhotoUrl,nick_name nickName,sum_score sumScore,
+      	      promote_number promoteNumber,family_address familyAddress,current_address currentAddress,
+		      contact , user_type userType, DATE_FORMAT(update_date,'%Y-%m-%d') updateDate
+	    from sys_user
+		where is_delete = 2 
+		<if test="id !=null">
+			and id = #{id}
+		</if>
+		<if test="userType != null and userType != ''">
+			and user_type = #{userType}
+		</if>
+		<if test="updateDate != null and updateDate != ''">
+			and DATE_FORMAT(update_date,'%Y-%m-%d') = #{updateDate}
+		</if>
+		<if test="idCardNo != null and idCardNo != ''">
+			and idCardNo = #{idCardNo}
+		</if>
+		<if test="loginName != null and loginName != ''">
+			and (login_name like concat('%',#{loginName},'%') or idCardNo like concat('%',#{loginName},'%'))
+		</if>
+		<!-- 该条件是过滤掉超级用户admin -->
+		<if test="isNotContainAdmin == true">
+			and create_uid != -1
+		</if>
+	</select>
+	
+	<!-- 删除客户信息, DeleteClientListService -->	
+	<update id="deleteByID" parameterType="Object">
+		update sys_user set
+		 is_delete = 1,
+		`delete_uid`=#{deleteUID},
+		`delete_date`=#{deleteDate}
+		where id=#{id}
+	</update>
+	
+</mapper>

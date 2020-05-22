@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SIGN_RECORD">
+	<insert id="insert" parameterType="cn.com.honzh.modules.yxjj.entry.RecordModel" useGeneratedKeys="true" keyProperty="id" >
+    insert into sign_record (user_id, open_id, sign_date, 
+      create_date, is_delete
+      )
+    values (#{userID}, #{openID}, #{signDate}, 
+      #{createDate}, 2
+      )
+  </insert>
+  
+  <update id="update" parameterType="cn.com.honzh.modules.yxjj.entry.RecordModel" >
+	    update sign_record
+	    set 
+	      sign_date = #{signDate},
+	      update_uid = #{updateUID}, 
+	      update_date = #{updateDate}
+	    where id = #{id}
+  </update>
+  
+  <select id="getRecordsList" parameterType="Object" resultType="map">
+	  	SELECT   
+	  	  user_id userID, open_id openID, sign_date signDate,
+	      three_count threeCount,seven_count sevenCount,fourteen_count fourteenCount,
+	      total_count totalCount
+	    from sign_record
+		where is_delete = 2 
+		<if test="id !=null">
+			and id = #{id}
+		</if>
+		<if test="user_id != null and user_id != ''">
+			and user_id = #{userID}
+		</if>
+		<if test="open_id != null and open_id != ''">
+			and open_id = #{openID}
+		</if>
+	</select>
+	
+</mapper>

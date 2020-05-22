@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="YXJJ_GOODS">
+	<insert id="insert" parameterType="cn.com.honzh.modules.yxjj.entry.GoodsModel" useGeneratedKeys="true" keyProperty="id" >
+    insert into yxjj_goods (goods_title, goods_name, goods_color, 
+      goods_weight, goods_content,goods_type,activity_end_date,
+      goods_score,goods_price,goods_remark,create_uid, 
+      create_date, update_uid, 
+      update_date, is_delete
+      )
+    values (#{goodsTitle}, #{goodsName}, #{goodsColor}, 
+      #{goodsWeight}, #{goodsContent}, #{goodsType}, #{activityEndDate}, 
+      #{goodScore}, #{goodsPrice}, #{goodsRemark}, 
+      #{createUID}, #{createDate}, #{updateUID}, 
+      #{updateDate}, 2
+      )
+  </insert>
+  
+	<update id="update" parameterType="cn.com.honzh.modules.yxjj.entry.GoodsModel" >
+	    update yxjj_goods
+	    set 
+	      goods_title = #{goodsTitle},
+	      goods_name = #{goodsName},
+	      goods_color = #{goodsColor},
+	      goods_weight = #{goodsWeight},
+	      goods_content = #{goodsContent},
+	      goods_type = #{goodsType},
+	      activity_end_date = #{activityEndDate},
+	      goods_score = #{goodScore},
+	      goods_price = #{goodsPrice},
+	      goods_remark = #{goodsRemark},
+	      goods_sort = #{goodsSort},
+	      update_uid = #{updateUID}, 
+	      update_date = #{updateDate}
+	    where id = #{id}
+  </update>
+  <select id="getGoodsList" parameterType="Object" resultType="map">
+	  	SELECT   
+	  	  goods_title goodsTitle, goods_name goodsName, goods_color goodsColor,
+	      goods_weight goodsWeight,goods_content goodsContent,goods_type goodsType,
+	      activity_end_date activityEndDate,goods_score goodScore,goods_price goodsPrice,
+	      goods_remark goodsRemark,goods_sort goodsSort
+	    from yxjj_goods
+		where is_delete = 2 
+		<if test="id !=null">
+			and id = #{id}
+		</if>
+		<if test="goodsType != null and goodsType != ''">
+			and goods_type = #{goodsType}
+		</if>
+	</select>
+	
+	<update id="deleteByID" parameterType="Object">
+		update yxjj_goods set
+		 is_delete = 1,
+		`delete_uid`=#{deleteUID},
+		`delete_date`=#{deleteDate}
+		where id=#{id}
+	</update>
+	
+</mapper>

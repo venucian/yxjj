@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="YXJJ_EDU_INSTITUTION_SCHOOL">
+	<insert id="insert" parameterType="cn.com.honzh.modules.yxjj.entry.InstitutionSchoolModel" useGeneratedKeys="true" keyProperty="id" >
+    insert into yxjj_edu_institution_school (institution_id, school_name, cover_phpto, 
+      remark, createDate, is_delete
+      )
+    values (#{institutionID}, #{schoolName}, #{coverPhoto},
+      #{remark}, #{createDate}, 2
+      )
+  </insert>
+  
+	<update id="update" parameterType="cn.com.honzh.modules.yxjj.entry.InstitutionSchoolModel" >
+    update yxjj_edu_institution_school
+    set 
+      institution_id = #{institutionID},
+      school_name = #{schoolName}, 
+      cover_phpto = #{coverPhoto}, 
+      remark = #{remark},
+      sort = #{sort},
+ 	  update_uid = #{updateUID}, 
+      update_date = #{updateDate}
+    where id = #{id}
+  </update>
+  <select id="getSchoolList" parameterType="Object" resultType="map">
+	  	SELECT id, institution_id institutionID, school_name schoolName, 
+      		cover_phpto coverPhoto, remark, sort
+	    from yxjj_edu_institution_school
+		where is_delete = 2 
+		<if test="id !=null">
+			and id = #{id}
+		</if>
+		<if test="schoolName != null and schoolName != ''">
+			and school_name = #{schoolName}
+		</if>
+		<if test="institutionID != null and institutionID != ''">
+			and institution_id = #{institutionID}
+		</if>
+	</select>
+	
+	<!-- 删除客户信息, DeleteClientListService -->	
+	<update id="deleteByID" parameterType="Object">
+		update yxjj_edu_institution_school set
+		 is_delete = 1,
+		`delete_uid`=#{deleteUID},
+		`delete_date`=#{deleteDate}
+		where id=#{id}
+	</update>
+	
+	
+</mapper>

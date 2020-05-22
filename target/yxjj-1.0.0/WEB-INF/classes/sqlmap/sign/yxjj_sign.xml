@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="YXJJ_SIGN">
+	<insert id="insert" parameterType="cn.com.honzh.modules.yxjj.entry.ApplyerModel" useGeneratedKeys="true" keyProperty="id" >
+    insert into yxjj_apply (org_name, applyer_name, applyer_phone, 
+      apply_type, is_delete
+      )
+    values (#{orgName}, #{applyerName}, #{applyerPhone}, 
+      #{applyType}, 2
+      )
+  </insert>
+  
+	<update id="update" parameterType="cn.com.honzh.modules.yxjj.entry.ApplyerModel" >
+    update yxjj_apply
+    set 
+      org_name = #{orgName}, applyer_name = #{applyerName}, applyer_phone = #{applyerPhone}, 
+      apply_type = #{applyType}
+    where id = #{id}
+  </update>
+  <select id="getApplyerList" parameterType="Object" resultType="map">
+	  	SELECT id,
+			  org_name orgName, applyer_name applyerName, applyer_phone applyerPhone, 
+		      apply_type applyType
+	    from yxjj_apply
+		where is_delete = 2 
+		<if test="id !=null">
+			and id = #{id}
+		</if>
+		<if test="applyType != null and applyType != ''">
+			and apply_type = #{applyType}
+		</if>
+		<if test="orgName != null and orgName != ''">
+			and org_name = #{orgName}
+		</if>
+	</select>
+	
+	<!-- 删除客户信息, DeleteClientListService -->	
+	<update id="deleteByID" parameterType="Object">
+		update yxjj_apply set
+		 is_delete = 1,
+		`delete_uid`=#{deleteUID},
+		`delete_date`=#{deleteDate}
+		where id=#{id}
+	</update>
+	
+</mapper>

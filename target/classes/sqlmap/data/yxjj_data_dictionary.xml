@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="YXJJ_DATA_DICTIONARY">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" >
+    insert into yxjj_data_dictionary (data_code, data_name, is_delete
+      )
+    values (#{dataCode}, #{dataName}, 2
+      )
+  </insert>
+  
+  <update id="update">
+    update yxjj_data_dictionary
+    set 
+      data_name = #{dataName}
+    where id = #{id}
+  </update>
+  <select id="getDataList" parameterType="Object" resultType="map">
+	  	SELECT id,
+			  data_name dataName
+	    from yxjj_data_dictionary
+		where is_delete = 2 
+		<if test="dataCode != null and dataCode != ''">
+			and data_code = #{dataCode}
+		</if>
+	</select>
+	
+	<update id="deleteByID" parameterType="Object">
+		update yxjj_data_dictionary set
+		 is_delete = 1,
+		`delete_uid`=#{deleteUID},
+		`delete_date`=#{deleteDate}
+		where id=#{id}
+	</update>
+	
+</mapper>

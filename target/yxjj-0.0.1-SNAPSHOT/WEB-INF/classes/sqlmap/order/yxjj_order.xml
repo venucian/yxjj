@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="YXJJ_ORDER">
+	<insert id="insert" parameterType="cn.com.honzh.modules.yxjj.entry.OrderModel" useGeneratedKeys="true" keyProperty="id" >
+    insert into yxjj_order (
+       open_id, order_code, goods_id,
+	   goods_number, pay_type, order_theory_amount, order_fact_amount,
+	   consume_score, send_type, order_address,createDate
+       is_delete
+      )
+    values (#{openID}, #{orderCode}, #{goodsID}, 
+      #{goodsNumber}, #{payType}, #{orderTheoryAmount}, #{orderFactAmount}, 
+      #{consumeScore}, #{sendType}, #{orderAddress}, #{createDate}
+      2
+      )
+  </insert>
+  
+	<update id="update" parameterType="cn.com.honzh.modules.yxjj.entry.OrderModel" >
+	    update yxjj_order
+	    set 
+	      goods_number = #{goodsNumber},  
+	      pay_type = #{payType},  
+	      order_theory_amount = #{orderTheoryAmount}, 
+	      order_fact_amount = #{orderFactAmount}, 
+	   	  consume_score = #{consumeScore},  
+	   	  send_type = #{sendType}, 
+	   	  order_address = #{orderAddress}, 
+	      update_uid = #{updateUID}, 
+	      update_date = #{updateDate}
+	    where order_code = #{orderCode}
+  </update>
+  <select id="getOrderList" parameterType="Object" resultType="map">
+	  	SELECT   
+	  		order_code orderCode, goods_id goodsID, goods_number goodsNumber,  
+		    pay_type payType,  order_theory_amount orderTheoryAmount, order_fact_amount orderFactAmount, 
+		   	consume_score consumeScore,  send_type sendType, order_address orderAddress
+	    from yxjj_order
+		where is_delete = 2 
+		<if test="id !=null">
+			and id = #{id}
+		</if>
+		<if test="order_code != null and orderCode != ''">
+			and order_code = #{orderCode}
+		</if>
+	</select>
+	
+	<!-- 删除客户信息, DeleteClientListService -->	
+	<update id="deleteByID" parameterType="Object">
+		update yxjj_order set
+		 is_delete = 1,
+		`delete_uid`=#{deleteUID},
+		`delete_date`=#{deleteDate}
+		where id=#{id}
+	</update>
+	
+</mapper>

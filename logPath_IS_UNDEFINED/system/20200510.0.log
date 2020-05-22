@@ -1,0 +1,108 @@
+22:33:25.134 [默认] [o.h.v.m.ResourceBundleMessageInterpolator: 89] -
+						Loaded expression factory via original TCCL
+22:33:25.211 [默认] [cn.com.honzh.App: 50] -
+						Starting App on DESKTOP-8JLG51G with PID 25872 (D:\workspace\yxjj\target\classes started by 15008 in D:\workspace\yxjj)
+22:33:25.317 [默认] [cn.com.honzh.App: 53] -
+						Running with Spring Boot v2.0.0.RELEASE, Spring v5.0.4.RELEASE
+22:33:25.319 [默认] [cn.com.honzh.App: 652] -
+						No active profile set, falling back to default profiles: default
+22:33:25.333 [默认] [o.h.validator.internal.engine.ValidatorFactoryImpl: 555] -
+						HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+22:33:25.348 [默认] [o.h.validator.internal.engine.ValidatorFactoryImpl: 556] -
+						HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+22:33:25.349 [默认] [o.h.validator.internal.engine.ValidatorFactoryImpl: 557] -
+						HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+22:33:25.350 [默认] [o.h.validator.internal.engine.ValidatorFactoryImpl: 558] -
+						HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+22:33:25.353 [默认] [o.h.validator.internal.engine.ValidatorFactoryImpl: 559] -
+						HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+22:33:25.640 [默认] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext: 589] -
+						Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5e3f861: startup date [Sun May 10 22:33:25 CST 2020]; root of context hierarchy
+22:33:28.016 [默认] [org.apache.ibatis.logging.LogFactory: 105] -
+						Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+22:33:28.332 [默认] [org.mybatis.spring.mapper.ClassPathMapperScanner: 44] -
+						No MyBatis mapper was found in '[cn.com.honzh]' package. Please check your configuration.
+22:33:29.414 [默认] [o.h.v.i.engine.resolver.TraversableResolvers: 60] -
+						Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+22:33:29.415 [默认] [o.h.v.m.ResourceBundleMessageInterpolator: 89] -
+						Loaded expression factory via original TCCL
+22:33:29.417 [默认] [o.h.v.i.engine.resolver.TraversableResolvers: 60] -
+						Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+22:33:29.419 [默认] [o.h.validator.internal.engine.ConfigurationImpl: 147] -
+						Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+22:33:29.421 [默认] [o.h.validator.internal.engine.ConfigurationImpl: 179] -
+						Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+22:33:29.422 [默认] [o.h.validator.internal.engine.ConfigurationImpl: 193] -
+						Setting custom ParameterNameProvider of type org.springframework.validation.beanvalidation.LocalValidatorFactoryBean$1
+22:33:29.426 [默认] [o.h.validator.internal.xml.ValidationXmlParser: 133] -
+						Trying to load META-INF/validation.xml for XML based Validator configuration.
+22:33:29.426 [默认] [o.h.validator.internal.xml.ResourceLoaderHelper: 53] -
+						Trying to load META-INF/validation.xml via user class loader
+22:33:29.427 [默认] [o.h.validator.internal.xml.ResourceLoaderHelper: 60] -
+						Trying to load META-INF/validation.xml via TCCL
+22:33:29.429 [默认] [o.h.validator.internal.xml.ResourceLoaderHelper: 66] -
+						Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+22:33:29.430 [默认] [o.h.validator.internal.xml.ValidationXmlParser: 140] -
+						No META-INF/validation.xml found. Using annotation based configuration only.
+22:33:29.444 [默认] [o.h.validator.internal.engine.ValidatorFactoryImpl: 555] -
+						HV000234: Using org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator as ValidatorFactory-scoped message interpolator.
+22:33:29.445 [默认] [o.h.validator.internal.engine.ValidatorFactoryImpl: 556] -
+						HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+22:33:29.445 [默认] [o.h.validator.internal.engine.ValidatorFactoryImpl: 557] -
+						HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+22:33:29.445 [默认] [o.h.validator.internal.engine.ValidatorFactoryImpl: 558] -
+						HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+22:33:29.446 [默认] [o.h.validator.internal.engine.ValidatorFactoryImpl: 559] -
+						HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+22:33:31.164 [默认] [o.s.boot.web.embedded.tomcat.TomcatWebServer: 91] -
+						Tomcat initialized with port(s): 8080 (http)
+22:33:31.200 [默认] [org.apache.coyote.http11.Http11NioProtocol: 180] -
+						Initializing ProtocolHandler ["http-nio-8080"]
+22:33:31.246 [默认] [org.apache.catalina.core.StandardService: 180] -
+						Starting service [Tomcat]
+22:33:31.247 [默认] [org.apache.catalina.core.StandardEngine: 180] -
+						Starting Servlet Engine: Apache Tomcat/8.5.28
+22:33:31.267 [默认] [org.apache.catalina.core.AprLifecycleListener: 180] -
+						The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\java\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\java\jre\bin;D:/java/jre/bin/server;D:/java/jre/bin;D:/java/jre/lib/amd64;C:\ProgramData\Oracle\Java\javapath;D:\pachong\Scripts\;D:\pachong\;D:;C:;Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\java\jdk1.8\bin;D:\java\jdk1.8\jre\bin;D:\maven\apache-maven-3.3.9\bin;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5.2 & MySQL Utilities 1.5.2 1.5\;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5.2 & MySQL Utilities 1.5.2 1.5\Doctrine extensions for PHP\;D:\git\Git\cmd;D:\node\;D:\ppython\;C:\Users\15008\AppData\Local\Microsoft\WindowsApps;C:\Users\15008\AppData\Roaming\npm;D:\vscode\Microsoft VS Code\bin;D:\ppython;;D:\eclipse-jee-neon-3-win32-x86_64\eclipse;;.]
+22:33:31.565 [默认] [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]: 180] -
+						Initializing Spring embedded WebApplicationContext
+22:33:31.565 [默认] [org.springframework.web.context.ContextLoader: 285] -
+						Root WebApplicationContext: initialization completed in 5925 ms
+22:33:32.336 [默认] [o.s.boot.web.servlet.ServletRegistrationBean: 185] -
+						Servlet dispatcherServlet mapped to [/]
+22:33:32.408 [默认] [o.s.boot.web.servlet.FilterRegistrationBean: 243] -
+						Mapping filter: 'characterEncodingFilter' to: [/*]
+22:33:32.413 [默认] [o.s.boot.web.servlet.FilterRegistrationBean: 243] -
+						Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+22:33:32.415 [默认] [o.s.boot.web.servlet.FilterRegistrationBean: 243] -
+						Mapping filter: 'httpPutFormContentFilter' to: [/*]
+22:33:32.420 [默认] [o.s.boot.web.servlet.FilterRegistrationBean: 243] -
+						Mapping filter: 'requestContextFilter' to: [/*]
+22:33:33.026 [默认] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext: 557] -
+						Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataRecordLogService': Unsatisfied dependency expressed through field 'ibatisDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'getIbatisDao' defined in class path resource [cn/com/honzh/core/config/DaoConfig.class]: Unsatisfied dependency expressed through method 'getIbatisDao' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'getSqlSessionFactoryBean' defined in class path resource [cn/com/honzh/core/config/DaoConfig.class]: Unsatisfied dependency expressed through method 'getSqlSessionFactoryBean' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+22:33:33.046 [默认] [org.apache.catalina.core.StandardService: 180] -
+						Stopping service [Tomcat]
+22:33:33.140 [默认] [o.s.b.a.l.ConditionEvaluationReportLoggingListener: 101] -
+						
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+22:33:33.154 [默认] [o.s.b.diagnostics.LoggingFailureAnalysisReporter: 42] -
+						
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to auto-configure a DataSource: 'spring.datasource.url' is not specified and no embedded datasource could be auto-configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
